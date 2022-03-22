@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="wTracker_idth=device-wTracker_idth, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body style=background-color:#fff;font-family:poppins;background:linear-gradient(120deg,#2980b9,#8e44ad);>
+    <style>.n{display:block;height:50px;width:145px;background:linear-gradient(#9365ff,#6f3bff);position:absolute;top:10px;right:100px;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+    .n1{display:block;height:50px;width:200px;background:linear-gradient(#9365ff,#6f3bff);position:relative;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+    .n2{display:block;height:50px;width:145px;background:linear-gradient(#9365ff,#6f3bff);position:relative;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+    .n3{display:block;height:40px;width:100px;background:linear-gradient(#9365ff,#6f3bff);position:relative;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+.content-table {
+  border-collapse: collapse;
+  margin: 50px 0;
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 0.9em;
+  min-width: 1000px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+</style>
+    <div>
+        <h1 style=text-align:center;font-family:poppins>Hello {{user}}</h1>
+    </div>
+    <div class=n>
+        <a  href="/" type="button">Logout</a>
+    </div>
+        <table class="content-table" Tracker_id="Tracker Details">
+            <tr style=background:linear-gradient(grey,rgb(130,238,224));color:#ffffff>
+                <th><h1>Tracker</th>
+                <th><h1>Last tracked</th>
+                <th><h1>Add</th>
+                <th><h1>Edit</th>
+                <th><h1>Delete</th>
+            </tr>
+        {% for tracker in trackers %}
+            <tr style="background:#f3f3f3">
+                <td><a href="/tracker/{{user}}/{{tracker["Name"]}}/view" type="button"><h2>{{tracker["Name"]}}</h2></a></td>
+                <td><h2>{{tracker["Last_Tracked"]}}</h2></td>
+                <td><a href="/tracker/{{user}}/{{tracker["Name"]}}/log" type="button"><h2>+</h2></a></td>
+                <td><a href="/tracker/{{user}}/{{tracker["Name"]}}/edit" type="button"><h2>Edit</h2></a></td>    
+                <td><a href="/tracker/{{user}}/{{tracker["Name"]}}/delete" type="button"><h2>Delete</h2></a></td>
+            </tr>
+        {% endfor %}   
+        </table>    
+    <a class="n1" href="/tracker/{{user}}/add" type="button">Add</a>
+</body>
+</html>

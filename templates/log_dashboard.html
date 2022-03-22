@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogDashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body style=background-color:#fff;font-family:poppins;background:linear-gradient(120deg,#2980b9,#8e44ad);>
+        <style>.n{display:block;height:50px;width:145px;background:linear-gradient(#9365ff,#6f3bff);position:absolute;top:10px;right:100px;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+        .n1{display:block;height:50px;width:200px;background:linear-gradient(#9365ff,#6f3bff);position:relative;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+        .n2{display:block;height:50px;width:145px;background:linear-gradient(#9365ff,#6f3bff);position:relative;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+        .n3{display:block;height:40px;width:100px;background:linear-gradient(#9365ff,#6f3bff);position:relative;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+    .content-table {
+      border-collapse: collapse;
+      margin: 50px 0;
+      margin-left:auto;
+      margin-right:auto;
+      font-size: 0.9em;
+      min-width: 1000px;
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .content-table thead tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .content-table th,
+    .content-table td {
+      padding: 12px 15px;
+    }
+    
+    .content-table tbody tr {
+      border-bottom: 1px solid #ffffff;
+    }
+    
+
+    </style>
+        <div>
+            <h1 style=text-align:center;font-family:poppins>Hello {{user}}</h1>
+        </div>
+        <div class=n>
+            <a  href="/" type="button">Logout</a>
+        </div>
+    <div><h2 style=text-align:left;font-family:poppins;font-weight:bold>{{name}}-Tracker</h2></div>
+    <div><img src="/static/plot.png" alt="{{name}}"></div>
+    <h1 style=text-align:center;font-family:poppins;font-weight:bold>Logs</h1>
+    <table class="content-table" Tracker_id="Tracker Details">
+        <tr style=font-family:poppins;font-weight:bold;background:linear-gradient(grey,rgb(130,238,224));color:#ffffff;color:#ffffff>
+            <th><h1>Timestamp</th>
+            <th><h1>Value</th>
+            <th><h1>Notes</th>
+            <th><h1>Edit</h1></th>
+            <th><h1>Delete</h1></th>
+        </tr>
+    {% for logs in tracker_logs %}
+    <tr style=background-color:white>
+            <td><h2>{{logs["Timestamp"]}}</td>
+            <td><h2>{{logs["Value"]}}</td>
+            <td><h2>{{logs["Notes"]}}</td>
+            <td>
+                <a href="/log/{{user}}/{{logs['Timestamp']}}/edit" type="button"><h2>Edit</a>
+            </td>   
+             <td><a href="/log/{{user}}/{{logs['Timestamp']}}/delete" type="button"><h2>Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table> 
+    <a class="n1" href="/dashboard/{{user}}">Dashboard</a>   
+</body>
+</html>

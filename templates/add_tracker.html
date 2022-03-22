@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body style=font-family:poppins;background:linear-gradient(120deg,#2980b9,#8e44ad)>
+    <style>.n{display:block;height:50px;width:145px;background:linear-gradient(#9365ff,#6f3bff);position:absolute;top:10px;right:100px;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+    .n1{display:block;height:50px;width:200px;background:linear-gradient(#9365ff,#6f3bff);position:relative;margin:auto;text-align: center;font-family: Poppins ;color:#ffffff;font-size:20px;font-weight: 500; letter-spacing: 3px;border-radius: 5px;}
+    .submission-form{
+        max-width:1000px;
+        max-height:700px;
+        margin:2rem auto;
+        border:15px solid black;
+        padding:2rem;
+        border-radius:10px}
+        .label{
+          display:block;
+          padding:1rem 0 .25rem;
+          text-transform:uppercase;
+          font-size:13px;
+        }
+        input{
+          display:block;
+          width:100%;
+          border:8px solid #97a6b1;
+          padding:.5rem;
+          font-size:18px;
+          border-radius:5px;
+        }
+        </style>
+   <div>
+       <h1 style=text-align:center>Hello,{{user}}</h1> 
+   </div>
+   <div class=n>
+    <a  href="/" type="button">Logout</a>
+</div>
+   <h2>Add tracker</h2>
+   <form class="submission-form"; action="/tracker/{{user}}/add" method="POST" id="create-form">
+    <div>
+    <label>Name:</label>
+    <input type="text" name="name" required />
+    </div>
+    <div>
+    <label>Description:</label>
+    <input type="text" name="desc" required />
+    </div>
+    <div>
+    <label>Tracker type:</label>
+    <input type="radio" id="numerical" name="trackers" value="Numerical">
+      <label for="numerical">Numerical</label>
+    <input type="radio" id="mcq" name="trackers" value="Multiple Choice">
+      <label for="mcq">Multiple Choice</label>
+    <input type="radio" id="time" name="trackers" value="Time">
+      <label for="time">Time</label>
+    <input type="radio" id="bool" name="trackers" value="boolean">
+      <label for="bool">Boolean</label>
+    </div>
+    <div>
+    <label>Settings</label>
+    <input type="text" name="o1" value="eg. good,bad,worse(for mcq)" />
+    </div>
+    <div>
+    <input  class=n1 style=border:1px;color:black type="submit" value = "Add Tracker">
+    </div>
+    </form>
+</body>
+</html>
